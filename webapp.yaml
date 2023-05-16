@@ -1,0 +1,50 @@
+---
+- name: Install Apache2 and run userdata script
+  hosts: web
+  become: yes
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Apache2
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+
+    - name: Start Apache2
+      service:
+        name: apache2
+        enabled: yes
+        state: started
+
+    - name: Install unzip
+      apt:
+        name: unzip
+        state: present
+        update_cache: yes
+
+    - name: Install wget
+      apt:
+        name:
+        - wget
+        state: present
+        update_cache: yes
+   
+    # - name: Copy script to target hosts
+    #   copy:
+    #     src: /home/devlab/Documents/projects/Ansible-projects/deploy.sh
+    #     dest: /home/ubuntu
+    #     mode: "0700"
+
+    # - name: Change file permission 
+    #   file: 
+    #     path: /home/ubuntu/deploy.sh
+    #     mode: "0700"
+
+    - name: Run application script 
+      ansible.builtin.script:
+         cmd: /home/devlab/Documents/projects/Ansible-projects/deploy.sh
+        
