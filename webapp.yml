@@ -32,17 +32,6 @@
         - wget
         state: present
         update_cache: yes
-   
-    # - name: Copy script to target hosts
-    #   copy:
-    #     src: /home/devlab/Documents/projects/Ansible-projects/deploy.sh
-    #     dest: /home/ubuntu
-    #     mode: "0700"
-
-    # - name: Change file permission 
-    #   file: 
-    #     path: /home/ubuntu/deploy.sh
-    #     mode: "0700"
 
     - name: Run application script 
       ansible.builtin.script:
