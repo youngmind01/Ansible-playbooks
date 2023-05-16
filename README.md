@@ -24,3 +24,5 @@ tasks:
 - Extract
 - copy web file to /var/www/html
 - Restart apache2
+
+![Screenshot from 2023-05-16 03-48-56](https://github.com/youngmind01/Ansible-projects/assets/54754559/6e1fefc5-8f44-4371-878b-76ad707bb1ea)
